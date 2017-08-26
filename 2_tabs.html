@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>J Query Tabs</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			margin: 0;
+		}
+		body {
+			font: 14px/1.4 arial;
+			color: #444;
+			background: #eee;
+		}
+		.Container {
+			width: 1024px;
+			margin: 100px auto 0 auto;
+		}
+		.TabsHold .Item {
+			color: #eee;
+			text-decoration: none;
+			display: inline-block;
+			background: #333;
+			padding: 8px 15px;
+			vertical-align: middle;
+			border: 1px solid #333;
+			transition: all ease .2s;
+			-webkit-transition: all ease .2s;
+			-ms-transition: all ease .2s;
+		}
+		.TabsHold .Item:not(:first-child){
+			margin-left: -4px;
+			border-left: 0;
+		}
+		.TabsHold .Item:not(:last-child) {
+			border-right-color: rgba(255,255,255,.1);
+		}
+		.TabsHold .Item.Active, .TabsHold .Item:hover {
+			background: #fff;
+			color: #333;
+			border-bottom-color: #fff;
+		}
+		.TabsHold .TabContents {
+			padding: 1em;
+			border: 1px solid #333;
+			background: #fff;
+			margin-top: -1px;
+		}
+		.TabsHold .TabContent {
+			display: none;
+		}
+		.TabsHold .TabContent.Active {
+			display: block;
+			animation: zoom .2s;
+		}
+		@keyframes zoom {
+			from{
+				opacity: 0;
+				transform: scale(.5);
+			}
+			to{
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="Container">
+		<div class="TabsHold">
+			<div class="TabItems">
+				<a href="javascript:void(0)" class="Item Active" data-tab="one">Tab 1</a>
+				<a href="javascript:void(0)" class="Item" data-tab="two">Tab 2</a>
+				<a href="javascript:void(0)" class="Item" data-tab="three">Tab 3</a>
+				<a href="javascript:void(0)" class="Item" data-tab="four">Tab 4</a>
+				<a href="javascript:void(0)" class="Item" data-tab="five">Tab 5</a>
+			</div>
+			<div class="TabContents">
+				<div class="TabContent Active" data-cont="one">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iusto odit, porro, in, repellendus dicta illo maiores dolorum mollitia dignissimos labore fugit fugiat explicabo quidem! Suscipit, voluptas quo dignissimos fuga?</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem cumque natus quod recusandae quos accusamus eveniet, officiis saepe beatae expedita similique id distinctio molestias placeat quibusdam repudiandae quae quis praesentium.</p>
+				</div>
+				<div class="TabContent" data-cont="two">
+					<div class="TabsHold">
+						<div class="TabItems">
+							<a href="javascript:void(0)" class="Item Active" data-tab="two_a">Tab 1</a>
+							<a href="javascript:void(0)" class="Item" data-tab="two_b">Tab 2</a>
+							<a href="javascript:void(0)" class="Item" data-tab="two_c">Tab 3</a>
+						</div>
+						<div class="TabContents">
+							<div class="TabContent Active" data-cont="two_a">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iusto odit, porro, in, repellendus dicta illo maiores dolorum mollitia dignissimos labore fugit fugiat explicabo quidem! Suscipit, voluptas quo dignissimos fuga?</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem cumque natus quod recusandae quos accusamus eveniet, officiis saepe beatae expedita similique id distinctio molestias placeat quibusdam repudiandae quae quis praesentium.</p>
+							</div>
+							<div class="TabContent" data-cont="two_b">
+								<div class="TabsHold">
+									<div class="TabItems">
+										<a href="javascript:void(0)" class="Item Active" data-tab="two_b_a">Tab 1</a>
+										<a href="javascript:void(0)" class="Item" data-tab="two_b_b">Tab 2</a>
+										<a href="javascript:void(0)" class="Item" data-tab="two_b_c">Tab 3</a>
+									</div>
+									<div class="TabContents">
+										<div class="TabContent Active" data-cont="two_b_a">
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iusto odit, porro, in, repellendus dicta illo maiores dolorum mollitia dignissimos labore fugit fugiat explicabo quidem! Suscipit, voluptas quo dignissimos fuga?</p>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem cumque natus quod recusandae quos accusamus eveniet, officiis saepe beatae expedita similique id distinctio molestias placeat quibusdam repudiandae quae quis praesentium.</p>
+										</div>
+										<div class="TabContent" data-cont="two_b_b">
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi odit iusto, voluptates maxime, vero assumenda similique doloribus delectus est. Explicabo iusto dicta minus assumenda odio accusamus est inventore facere, soluta!</p>
+										</div>
+										<div class="TabContent" data-cont="two_b_c">
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste magni voluptate, atque maiores facilis iusto illo ullam vero culpa quae tempora corporis reiciendis quidem, distinctio commodi sapiente consequuntur, veniam animi.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="TabContent" data-cont="two_c">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste magni voluptate, atque maiores facilis iusto illo ullam vero culpa quae tempora corporis reiciendis quidem, distinctio commodi sapiente consequuntur, veniam animi.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="TabContent" data-cont="three">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste magni voluptate, atque maiores facilis iusto illo ullam vero culpa quae tempora corporis reiciendis quidem, distinctio commodi sapiente consequuntur, veniam animi.</p>
+				</div>
+				<div class="TabContent" data-cont="four">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime modi possimus saepe. Porro laborum earum, id cum facilis labore, a pariatur debitis, natus quia deserunt fugit quisquam eius dolor. Natus?</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, aperiam aut, praesentium non ea repellat harum illo nulla accusamus, asperiores, mollitia eligendi? Deserunt aperiam ullam corporis eos ratione qui. Necessitatibus.</p>
+				</div>
+				<div class="TabContent" data-cont="five">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero soluta, officiis aut ab explicabo repellendus hic quis ad vel sint assumenda consectetur, esse, autem aspernatur similique laboriosam amet! Error, cupiditate.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="TabsHold" style="display: none">
+			<div class="TabItems">
+				<a href="javascript:void(0)" class="Item Active" data-tab="one">Tab 1</a>
+				<a href="javascript:void(0)" class="Item" data-tab="two">Tab 2</a>
+				<a href="javascript:void(0)" class="Item" data-tab="three">Tab 3</a>
+				<a href="javascript:void(0)" class="Item" data-tab="four">Tab 4</a>
+				<a href="javascript:void(0)" class="Item" data-tab="five">Tab 5</a>
+			</div>
+			<div class="TabContents">
+				<div class="TabContent Active" data-cont="one">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iusto odit, porro, in, repellendus dicta illo maiores dolorum mollitia dignissimos labore fugit fugiat explicabo quidem! Suscipit, voluptas quo dignissimos fuga?</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem cumque natus quod recusandae quos accusamus eveniet, officiis saepe beatae expedita similique id distinctio molestias placeat quibusdam repudiandae quae quis praesentium.</p>
+				</div>
+				<div class="TabContent" data-cont="two">
+					<div class="TabsHold">
+						<div class="TabItems">
+							<a href="javascript:void(0)" class="Item Active" data-tab="two_a">Tab 1</a>
+							<a href="javascript:void(0)" class="Item" data-tab="two_b">Tab 2</a>
+							<a href="javascript:void(0)" class="Item" data-tab="two_c">Tab 3</a>
+						</div>
+						<div class="TabContents">
+							<div class="TabContent Active" data-cont="two_a">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iusto odit, porro, in, repellendus dicta illo maiores dolorum mollitia dignissimos labore fugit fugiat explicabo quidem! Suscipit, voluptas quo dignissimos fuga?</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem cumque natus quod recusandae quos accusamus eveniet, officiis saepe beatae expedita similique id distinctio molestias placeat quibusdam repudiandae quae quis praesentium.</p>
+							</div>
+							<div class="TabContent" data-cont="two_b">
+								<div class="TabsHold">
+									<div class="TabItems">
+										<a href="javascript:void(0)" class="Item Active" data-tab="two_b_a">Tab 1</a>
+										<a href="javascript:void(0)" class="Item" data-tab="two_b_b">Tab 2</a>
+										<a href="javascript:void(0)" class="Item" data-tab="two_b_c">Tab 3</a>
+									</div>
+									<div class="TabContents">
+										<div class="TabContent Active" data-cont="two_b_a">
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iusto odit, porro, in, repellendus dicta illo maiores dolorum mollitia dignissimos labore fugit fugiat explicabo quidem! Suscipit, voluptas quo dignissimos fuga?</p>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem cumque natus quod recusandae quos accusamus eveniet, officiis saepe beatae expedita similique id distinctio molestias placeat quibusdam repudiandae quae quis praesentium.</p>
+										</div>
+										<div class="TabContent" data-cont="two_b_b">
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi odit iusto, voluptates maxime, vero assumenda similique doloribus delectus est. Explicabo iusto dicta minus assumenda odio accusamus est inventore facere, soluta!</p>
+										</div>
+										<div class="TabContent" data-cont="two_b_c">
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste magni voluptate, atque maiores facilis iusto illo ullam vero culpa quae tempora corporis reiciendis quidem, distinctio commodi sapiente consequuntur, veniam animi.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="TabContent" data-cont="two_c">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste magni voluptate, atque maiores facilis iusto illo ullam vero culpa quae tempora corporis reiciendis quidem, distinctio commodi sapiente consequuntur, veniam animi.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="TabContent" data-cont="three">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste magni voluptate, atque maiores facilis iusto illo ullam vero culpa quae tempora corporis reiciendis quidem, distinctio commodi sapiente consequuntur, veniam animi.</p>
+				</div>
+				<div class="TabContent" data-cont="four">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime modi possimus saepe. Porro laborum earum, id cum facilis labore, a pariatur debitis, natus quia deserunt fugit quisquam eius dolor. Natus?</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, aperiam aut, praesentium non ea repellat harum illo nulla accusamus, asperiores, mollitia eligendi? Deserunt aperiam ullam corporis eos ratione qui. Necessitatibus.</p>
+				</div>
+				<div class="TabContent" data-cont="five">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero soluta, officiis aut ab explicabo repellendus hic quis ad vel sint assumenda consectetur, esse, autem aspernatur similique laboriosam amet! Error, cupiditate.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+
+			$('.TabsHold').on('click','.Item',function(){
+				var vDataTab = $(this).attr('data-tab');
+				$(this).closest('.TabItems').find('.Item').removeClass('Active');
+				$(this).addClass('Active');
+
+				$(this).closest('.TabItems').next('.TabContents').find('.TabContent').removeClass('Active');
+				$(this).closest('.TabItems').next('.TabContents').find('.TabContent[data-cont='+ vDataTab +']').addClass('Active');
+
+				var vIsThere = $(this).closest('.TabItems').next('.TabContents').find('.TabContent[data-cont='+ vDataTab +']').children().hasClass('TabsHold');
+				//console.log(vIsThere);
+				if(vIsThere){
+					$(this).closest('.TabItems').next('.TabContents').find('.TabContent[data-cont='+ vDataTab +']').find('.Item:first-child').click();
+				}
+				
+			});
+
+		});
+	</script>
+</body>
+</html>
