@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Javascript</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			margin: 0;
+		}
+		html {
+			font-size: 14px;
+		}
+		body {
+			font: 14px/1.4 arial;
+			color: #444;
+		}
+		h1, p {
+			margin-bottom: 1em;
+		}
+		hr {
+			margin: 1em 0;
+		}
+		h1:last-child, p:last-child {
+			margin-bottom: 0;
+		}
+		.Container {
+			width: 1024px;
+			margin: 2em auto;
+		}
+		.TabsHold .Item {
+			display: inline-block;
+			padding: 10px 20px;
+			text-align: center;
+			background: #ccc;
+			color: #000;
+			text-decoration: none;
+			background: linear-gradient(#eee, #ccc);
+			/* background: -webkit-linear-gradient(#eee, #ccc);
+			background: -o-linear-gradient(#eee, #ccc);
+			background: -moz-linear-gradient(#eee, #ccc); */
+			border: 1px solid #ccc;
+		}
+		.TabContents {
+			background: #f5f5f5;
+			padding: 1em;
+			border: 1px solid #ccc;
+			margin-top: -1px;
+		}
+		.TabsHold {
+			margin-bottom: 2em;
+		}
+		.TabsHold:last-child {
+			margin-bottom: 0;
+		}
+		.TabsHold .TabCont {
+			display: none;
+		}
+		.TabsHold .TabCont.Active {
+			display: block;
+			animation: zoom .2s;
+			-webkit-animation: zoom .2s;
+			-ms-animation: zoom .2s;
+			-moz-animation: zoom .2s;
+		}
+		.TabsHold .Item.Active, .TabsHold .Item:hover {
+			background: #f5f5f5;
+			border-bottom-color: transparent;
+		}
+		.TabsHold .TabContents .Item {
+			display: none;
+		}
+		@-webkit-keyframes zoom {
+			from{
+				opacity: 0;
+				transform: scale(0);
+			}
+			to{
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+		.TabsHold .TabContents .TabsHold .Item {
+		    display: inline-block;
+		}
+		.TabsHold .TabContents .TabsHold .TabContents .Item {
+		    display: none;
+		}
+		
+	</style>
+</head>
+<body>
+<div class="Container">
+	<h1>Multiple tabs and Tab inside tabs</h1><hr/>
+	<div class="TabsHold">
+		<div class="TabItems">
+			<a href="javasript:void(0)" class="Item Active" data-item="one">Tab 1</a>
+			<a href="javasript:void(0)" class="Item" data-item="two">Tab 2</a>
+			<a href="javasript:void(0)" class="Item" data-item="three">Tab 3</a>
+			<a href="javasript:void(0)" class="Item" data-item="four">Tab 4</a>
+		</div>
+		<div class="TabContents">
+			<a href="javasript:void(0)" class="Item Active" data-item="one">Tab 1</a>
+			<div class="TabCont Active" data-cont="one">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab magni, numquam beatae, dolore asperiores eum. Beatae hic perferendis inventore provident minus similique odit ad eaque, at, temporibus, saepe aut?</p>
+			</div>
+			<a href="javasript:void(0)" class="Item" data-item="two">Tab 1</a>
+			<div class="TabCont" data-cont="two">
+				<div class="TabsHold">
+					<div class="TabItems">
+						<a href="javasript:void(0)" class="Item Active" data-item="two_a">Tab 1</a>
+						<a href="javasript:void(0)" class="Item" data-item="two_b">Tab 2</a>
+					</div>
+					<div class="TabContents">
+						<a href="javasript:void(0)" class="Item Active" data-item="two_a">Tab 1</a>
+						<div class="TabCont Active" data-cont="two_a">
+							<p>Tab 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab magni, numquam beatae, dolore asperiores eum. Beatae hic perferendis inventore provident minus similique odit ad eaque, at, temporibus, saepe aut?</p>
+						</div>
+						<a href="javasript:void(0)" class="Item" data-item="two_b">Tab 1</a>
+						<div class="TabCont" data-cont="two_b">
+							<p>Tab 2: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque accusamus dolore ipsa vero officia veniam nisi sunt, incidunt maiores error distinctio consequatur qui beatae laudantium earum quo eos! Nobis, nesciunt.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href="javasript:void(0)" class="Item" data-item="three">Tab 1</a>
+			<div class="TabCont" data-cont="three">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi sapiente maxime eum debitis, similique sint praesentium temporibus voluptatum! Quas eius officia dolorem harum sequi unde ab optio corporis, repudiandae. Iusto.</p>
+			</div>
+			<a href="javasript:void(0)" class="Item" data-item="four">Tab 1</a>
+			<div class="TabCont" data-cont="four">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae vero eveniet similique ea facilis consectetur esse quae eos sit et qui consequuntur rem, earum dolorum impedit. In ipsa nihil nulla?</p>
+			</div>
+		</div>
+	</div>
+	<div class="TabsHold">
+		<div class="TabItems">
+			<a href="javasript:void(0)" class="Item Active" data-item="one">Tab 1</a>
+			<a href="javasript:void(0)" class="Item" data-item="two">Tab 2</a>
+			<a href="javasript:void(0)" class="Item" data-item="three">Tab 3</a>
+			<a href="javasript:void(0)" class="Item" data-item="four">Tab 4</a>
+		</div>
+		<div class="TabContents">
+			<a href="javasript:void(0)" class="Item Active" data-item="one">Tab 1</a>
+			<div class="TabCont Active" data-cont="one">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab magni, numquam beatae, dolore asperiores eum. Beatae hic perferendis inventore provident minus similique odit ad eaque, at, temporibus, saepe aut?</p>
+			</div>
+			<a href="javasript:void(0)" class="Item" data-item="two">Tab 1</a>
+			<div class="TabCont" data-cont="two">
+				<div class="TabsHold">
+					<div class="TabItems">
+						<a href="javasript:void(0)" class="Item Active" data-item="two_a">Tab 1</a>
+						<a href="javasript:void(0)" class="Item" data-item="two_b">Tab 2</a>
+					</div>
+					<div class="TabContents">
+						<a href="javasript:void(0)" class="Item Active" data-item="two_a">Tab 1</a>
+						<div class="TabCont Active" data-cont="two_a">
+							<p>Tab 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab magni, numquam beatae, dolore asperiores eum. Beatae hic perferendis inventore provident minus similique odit ad eaque, at, temporibus, saepe aut?</p>
+						</div>
+						<a href="javasript:void(0)" class="Item" data-item="two_b">Tab 1</a>
+						<div class="TabCont" data-cont="two_b">
+							<p>Tab 2: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque accusamus dolore ipsa vero officia veniam nisi sunt, incidunt maiores error distinctio consequatur qui beatae laudantium earum quo eos! Nobis, nesciunt.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href="javasript:void(0)" class="Item" data-item="three">Tab 1</a>
+			<div class="TabCont" data-cont="three">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi sapiente maxime eum debitis, similique sint praesentium temporibus voluptatum! Quas eius officia dolorem harum sequi unde ab optio corporis, repudiandae. Iusto.</p>
+			</div>
+			<a href="javasript:void(0)" class="Item" data-item="four">Tab 1</a>
+			<div class="TabCont" data-cont="four">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae vero eveniet similique ea facilis consectetur esse quae eos sit et qui consequuntur rem, earum dolorum impedit. In ipsa nihil nulla?</p>
+			</div>
+		</div>
+	</div>
+</div>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.TabsHold').on('click','.Item',function(){
+				$(this).closest('.TabItems').find('.Item').removeClass('Active');
+				$(this).addClass('Active');
+
+				var vDataItem = $(this).attr('data-item');
+				
+				$(this).closest('.TabItems').next('.TabContents').find('.TabCont').removeClass('Active');
+				$(this).closest('.TabItems').next('.TabContents').find('.TabCont[data-cont='+ vDataItem +']').addClass('Active');
+
+				if($(this).closest('.TabItems').next('.TabContents').find('.TabCont[data-cont='+ vDataItem +']').children().hasClass('TabsHold')){
+					$(this).closest('.TabItems').next('.TabContents').find('.TabCont[data-cont='+ vDataItem +']').children().find('.TabCont:first').addClass('Active');
+				}
+			});
+
+		});
+	</script>
+</body>
+</html>
